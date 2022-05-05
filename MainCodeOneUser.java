@@ -138,8 +138,7 @@ public class MainCodeOneUser extends OpMode
         LeftBack.setPower(BackLeft);
         RightFront.setPower(FrontRight);
         RightBack.setPower(BackRight);
-        racklift.setPower(gamepad2.left_stick_y);
-        linearlift.setPower(gamepad2.right_stick_y);
+   
         //
         if(gamepad1.a) {
             l.setPosition(0.1);
@@ -148,6 +147,14 @@ public class MainCodeOneUser extends OpMode
             l.setPosition(0.6);
             r.setPosition(0);
         }
+        
+        if(gamepad1.left_trigger >= 0.6) {
+            racklift.setPower(1);
+        } else if (gamepad1.right_trigger >= 0.6) {
+            racklift.setPower(-1);
+        } else {
+            racklift.setPower(0);
+        }
         //
         if(gamepad1.x) {
             capclaw.setPosition(0);
@@ -155,7 +162,7 @@ public class MainCodeOneUser extends OpMode
             capclaw.setPosition(.6);
         }
         //
-        if(gamepad2.dpad_left) {
+        if(gamepad1.dpad_left) {
             car.setPower(.8);
         } else if(gamepad2.dpad_right) {
             car.setPower(-.8);
@@ -163,7 +170,7 @@ public class MainCodeOneUser extends OpMode
             car.setPower(0);
         }
         //
-        if(gamepad2.dpad_up) {
+        if(gamepad1.dpad_up) {
             pivot.setPosition(1);
         } else if (gamepad2.dpad_down) {
             pivot.setPosition(0);
