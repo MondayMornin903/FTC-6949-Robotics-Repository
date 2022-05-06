@@ -156,6 +156,14 @@ public class MainCodeOneUser extends OpMode
             racklift.setPower(0);
         }
         //
+        if(gamepad1.left_bumper) {
+            linearlift.setPower(1);
+        } else if(gamepad1.right_bumper) {
+            linearlift.setPower(-1);
+        } else {
+            linearlift.setPower(0);
+        }
+        //
         if(gamepad1.x) {
             capclaw.setPosition(0);
         } else if (gamepad1.y) {
